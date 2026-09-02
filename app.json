@@ -7,7 +7,7 @@
     "icon": "./assets/images/myApp.jpeg",
     "userInterfaceStyle": "light",
     "splash":{
-      "image":"./assets/images/splash-icon.png",
+      "image":"./assets/images/splash-icon.jpeg",
       "resizeMode": "contain",
       "backgroundColor":"#0D1F4E"
     },
@@ -23,7 +23,7 @@
       "package":"com.Pranto.StudentDirectory"
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.jpeg"
     }
   }
 }
