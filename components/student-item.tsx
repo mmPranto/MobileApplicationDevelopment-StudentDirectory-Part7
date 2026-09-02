@@ -30,6 +30,7 @@ export default function StudentItem({
         source={{ uri: student.avatarUrl }}
         style={styles.avatar}
         resizeMode="cover"
+        accessibilityLabel={`Profile photo of ${student.name}`}
       />
 
       {/* Text content */}
