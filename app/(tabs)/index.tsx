@@ -5,7 +5,7 @@ import StudentItem from "@/components/student-item";
 import { useDebounce } from "@/hooks/use-debounce";
 import { Student, STUDENTS } from "@/data/students";
 // Add useRef and useEffect to the import
-import React, { useRef, useEffect, useMemo, useState } from "react";
+import React, { useRef, useEffect, useMemo, useState, useCallback } from "react";
 import { Text, StyleSheet, View, FlatList, Pressable, ActivityIndicator } from "react-native";
 
 import { router } from "expo-router";
@@ -14,6 +14,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 // app/(tabs)/index.tsx — import TextInput (not to be used as part of UI, but the type is needed for useRef)
 import { TextInput } from "react-native";
+import ErrorScreen from "@/components/error-screen";
 
 export default function HomePage() {
     const [query, setQuery] = useState<string>("");
@@ -38,7 +39,12 @@ export default function HomePage() {
     // const [students, setStudents] = useState<Student[]>(STUDENTS);
     // Read students directly from the global context
     const { students, isLoading, error } = useStudents();
-
+    const [retryKey, setRetryKey] = useState(0);
+    
+    const handleRetry = useCallback(() => {
+        setRetryKey(k => k + 1);
+    },[]);
+    
     if (isLoading) {
         return (
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -49,12 +55,7 @@ export default function HomePage() {
     }
 
     if (error) {
-        return (
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 24 }}>
-                <Text style={{ fontSize: 18, fontWeight: "bold", color: "#EF4444" }}>Connection Error</Text>
-                <Text style={{ color: "#64748B", marginTop: 8, textAlign: "center" }}>{error}</Text>
-            </View>
-        );
+        return <ErrorScreen message={error} onRetry={handleRetry}/>
     }
 
     // No longer needed
