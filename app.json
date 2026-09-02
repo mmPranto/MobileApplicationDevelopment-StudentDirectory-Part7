@@ -6,24 +6,29 @@
     "orientation": "portrait",
     "icon": "./assets/images/myApp.jpeg",
     "userInterfaceStyle": "light",
-    "splash":{
-      "image":"./assets/images/splash-icon.jpeg",
+    "splash": {
+      "image": "./assets/images/splash-icon.jpeg",
       "resizeMode": "contain",
-      "backgroundColor":"#0D1F4E"
+      "backgroundColor": "#0D1F4E"
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier":"com.Pranto.StudentDirectory"
+      "bundleIdentifier": "com.Pranto.StudentDirectory"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage":"./assets/ada.jpeg",
+        "foregroundImage": "./assets/ada.jpeg",
         "backgroundColor": "#0D1F4E"
       },
-      "package":"com.Pranto.StudentDirectory"
+      "package": "com.Pranto.StudentDirectory"
     },
     "web": {
       "favicon": "./assets/images/favicon.jpeg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7399e919-bc74-4255-b3b1-eba48878e96e"
+      }
     }
   }
 }
