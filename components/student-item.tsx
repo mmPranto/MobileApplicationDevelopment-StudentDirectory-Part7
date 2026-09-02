@@ -1,6 +1,6 @@
 // components/student-item.tsx
 
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Student } from "../data/students";
 import React from "react";
 
@@ -17,14 +17,13 @@ export default function StudentItem({
   isSelected,
 }: StudentItemProps) {
   return (
-    <TouchableOpacity
+    <Pressable
       style={[styles.row, isSelected && styles.rowSelected]}
       onPress={() => onPress(student)}
       accessible={true}
       accessibilityRole="button"
       accessibilityLabel={`${student.name}, ${student.department}`}
       accessibilityHint="Tap to view Full profile"
-      activeOpacity={0.7}
     >
       {/* Avatar image */}
       <Image
@@ -46,7 +45,7 @@ export default function StudentItem({
 
       {/* Chevron indicator */}
       <Text style={styles.chevron}>{isSelected ? "▲" : "▶"}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 
