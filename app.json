@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/ada.jpeg",
+        "foregroundImage": "./assets/images/ada.jpeg",
         "backgroundColor": "#0D1F4E"
       },
       "package": "com.Pranto.StudentDirectory"
