@@ -1,4 +1,4 @@
-// components/student-detail.tsx
+
 
 import {
   Alert,
@@ -76,16 +76,18 @@ export default function StudentDetail({
         ))}
       </View>
 
-      {/* Add this at the bottom of the card */}
-          <Pressable
-              style={styles.removeButton}
-              onPress={handleRemove}
-              accessibilityRole="button"
-              accessibilityLabel="{`Remove ${student.name} from the directory`}"
-              accessibilityHint="Shows a confirmation dialog before removing"
-          >
-              
-
+      {/* 
+        FIX: Corrected accessibilityLabel syntax from a literal quoted string 
+        to a proper template expression and added explicit accessibilityRole 
+        and accessibilityHint so screen readers announce the remove action cleanly.
+      */}
+      <Pressable
+        style={styles.removeButton}
+        onPress={handleRemove}
+        accessibilityRole="button"
+        accessibilityLabel={`Remove ${student.name} from the directory`}
+        accessibilityHint="Shows a confirmation dialog before removing"
+      >
         <Text style={styles.removeText}>Remove from Directory</Text>
       </Pressable>
     </View>
@@ -163,7 +165,6 @@ const styles = StyleSheet.create({
     color: "#1D4ED8",
     fontWeight: "500",
   },
-  // Add to StyleSheet.create({...}):
   removeButton: {
     marginTop: 16,
     paddingVertical: 10,
